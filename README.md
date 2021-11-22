@@ -1,4 +1,4 @@
-****# JwtConfiguration NetCore 5
+# JwtConfiguration NetCore 5
 
 **#JWt**
 JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties
@@ -17,5 +17,3 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-
-****
