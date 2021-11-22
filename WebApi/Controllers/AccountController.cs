@@ -8,7 +8,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using WebApi.Models;
 
-
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
@@ -50,12 +49,13 @@ namespace WebApi.Controllers
             var expires = DateTime.Now.AddDays(Convert.ToDouble(_configuration["JwtExpireDays"]));
 
             var token = new JwtSecurityToken(
-                _configuration["JwtIssuer"],
-                _configuration["JwtIssuer"],
-                claims,
+                issuer: _configuration["JwtIssuer"],
+                audience: _configuration["JwtIssuer"],
+                claims: claims,
                 expires: expires,
                 signingCredentials: creds
             );
+
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
